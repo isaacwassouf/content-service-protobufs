@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "./content-management-service";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+
+service ContentService {
+    rpc GetContent(GetContentRequest) returns (GetContentResponse);
+}
+
+message GetContentRequest {
+  string table_name = 1;
+  string entity_id = 2;
+}
+
+message GetContentResponse {
+  google.protobuf.Any content = 4;
+}
+
