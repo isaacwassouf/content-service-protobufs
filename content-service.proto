@@ -2,12 +2,13 @@ syntax = "proto3";
 
 option go_package = "./content-management-service";
 
-import "google/protobuf/any.proto";
-import "google/protobuf/empty.proto";
+//import "google/protobuf/any.proto";
+//import "google/protobuf/empty.proto";
 
 service ContentService {
-    rpc GetContent(GetContentRequest) returns (GetContentResponse);
-    rpc DeleteContent(DeleteContentRequest) returns (DeleteContentResponse);
+  rpc GetContent(GetContentRequest) returns (GetContentResponse);
+  rpc DeleteContent(DeleteContentRequest) returns (DeleteContentResponse);
+  rpc CreateContent(CreateContentRequest) returns (CreateContentResponse);
 }
 
 message GetContentRequest {
@@ -26,4 +27,14 @@ message DeleteContentRequest {
 
 message DeleteContentResponse {
   string message = 1;
+}
+
+message CreateContentRequest {
+  string table_name = 1;
+  map<string, string> data = 2;
+}
+
+message CreateContentResponse {
+  int64 id = 1;
+  string message = 2;
 }
