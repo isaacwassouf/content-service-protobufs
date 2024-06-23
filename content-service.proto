@@ -9,6 +9,7 @@ service ContentService {
   rpc GetContent(GetContentRequest) returns (GetContentResponse);
   rpc DeleteContent(DeleteContentRequest) returns (DeleteContentResponse);
   rpc CreateContent(CreateContentRequest) returns (CreateContentResponse);
+  rpc UpdateContent(UpdateContentRequest) returns (UpdateContentResponse);
 }
 
 message GetContentRequest {
@@ -37,4 +38,14 @@ message CreateContentRequest {
 message CreateContentResponse {
   int64 id = 1;
   string message = 2;
+}
+
+message UpdateContentRequest {
+  string table_name = 1;
+  string entity_id = 2;
+  map<string, string> data = 3;
+}
+
+message UpdateContentResponse {
+  string message = 1;
 }
