@@ -10,6 +10,7 @@ service ContentService {
   rpc DeleteContent(DeleteContentRequest) returns (DeleteContentResponse);
   rpc CreateContent(CreateContentRequest) returns (CreateContentResponse);
   rpc UpdateContent(UpdateContentRequest) returns (UpdateContentResponse);
+  rpc ListContent(ListContentRequest) returns (ListContentResponse);
 }
 
 message GetContentRequest {
@@ -48,4 +49,17 @@ message UpdateContentRequest {
 
 message UpdateContentResponse {
   string message = 1;
+}
+
+message ListContentRequest {
+  string table_name = 1;
+  int32 page = 2;
+  int32 per_page = 3;
+}
+
+message ListContentResponse {
+  int32 page = 1;
+  int32 per_page = 2;
+  int32 total_pages = 3;
+  repeated bytes entities = 4;
 }
