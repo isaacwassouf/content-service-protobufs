@@ -7,6 +7,7 @@ import "google/protobuf/empty.proto";
 
 service ContentService {
     rpc GetContent(GetContentRequest) returns (GetContentResponse);
+    rpc DeleteContent(DeleteContentRequest) returns (DeleteContentResponse);
 }
 
 message GetContentRequest {
@@ -18,3 +19,11 @@ message GetContentResponse {
   bytes content = 1;
 }
 
+message DeleteContentRequest {
+  string table_name = 1;
+  string entity_id = 2;
+}
+
+message DeleteContentResponse {
+  string message = 1;
+}
