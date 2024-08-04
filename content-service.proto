@@ -16,6 +16,7 @@ service ContentService {
 message GetContentRequest {
   string table_name = 1;
   string entity_id = 2;
+  uint64 creator_id = 3;
 }
 
 message GetContentResponse {
@@ -25,6 +26,7 @@ message GetContentResponse {
 message DeleteContentRequest {
   string table_name = 1;
   string entity_id = 2;
+  uint64 creator_id = 3;
 }
 
 message DeleteContentResponse {
@@ -34,6 +36,7 @@ message DeleteContentResponse {
 message CreateContentRequest {
   string table_name = 1;
   map<string, string> data = 2;
+  uint64 creator_id = 3;
 }
 
 message CreateContentResponse {
@@ -45,6 +48,7 @@ message UpdateContentRequest {
   string table_name = 1;
   string entity_id = 2;
   map<string, string> data = 3;
+  uint64 creator_id = 4;
 }
 
 message UpdateContentResponse {
