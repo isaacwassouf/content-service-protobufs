@@ -5,6 +5,8 @@ option go_package = "./content-management-service";
 //import "google/protobuf/any.proto";
 //import "google/protobuf/empty.proto";
 
+package protos;
+
 service ContentService {
   rpc GetContent(GetContentRequest) returns (GetContentResponse);
   rpc DeleteContent(DeleteContentRequest) returns (DeleteContentResponse);
